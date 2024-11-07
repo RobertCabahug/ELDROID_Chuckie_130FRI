@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "337526070218",
+    "project_id": "homeease-fb",
+    "storage_bucket": "homeease-fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337526070218:android:eb3c6d4b3a761647a40d33",
+        "android_client_info": {
+          "package_name": "com.capstone.homeease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhTjgLkt3r_SrayX00PaGSDMCv6KPlu7Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
