@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_700">
+
+    <TextView
+        android:id="@+id/fullNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/fullNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fullNameTextView"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Enter your full name"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:background="@drawable/my_border"/>
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Email"
+        android:textSize="18sp"
+        android:layout_below="@id/fullNameEditText"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailTextView"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:textColor="@color/white"
+        android:hint="Enter your email"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:background="@drawable/my_border"/>
+
+    <TextView
+        android:id="@+id/passwordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Password"
+        android:textSize="18sp"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordTextView"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Enter your password"
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        android:background="@drawable/my_border"/>
+
+    <TextView
+        android:id="@+id/passwordConfirmTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Confirm Password"
+        android:textSize="18sp"
+        android:layout_below="@id/passwordEditText"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/passwordConfirmEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_below="@id/passwordConfirmTextView"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Enter your password"
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        android:background="@drawable/my_border"/>
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:text="Register"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_below="@id/passwordConfirmEditText"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="140dp"
+        android:backgroundTint="@android:color/white"/>
+
+</RelativeLayout>
+

@@ -13,50 +13,11 @@
         android:theme="@style/Theme.HomeEase"
         tools:targetApi="31">
         <activity
-            android:name=".ExpertDashBoard"
-            android:exported="false" />
-        <activity
-            android:name=".AvailableExpertsActivity"
-            android:exported="false"
-            android:label="Available Experts" />
-        <activity
-            android:name=".HistoryActivity"
-            android:exported="false"
-            android:label="Booking History" />
-        <activity
-            android:name=".ProfilePageActivity"
-            android:exported="false"
-            android:label="Profile" />
-        <activity
-            android:name=".MessagesPageActivity"
-            android:exported="false"
-            android:label="Messages" />
-        <activity
-            android:name=".PaymentPageActivity"
-            android:exported="false"
-            android:label="Payment" />
-        <activity
-            android:name=".ActivityPage"
-            android:exported="false"
-            android:label="Activity" />
-        <activity
-            android:name=".UserDashBoard"
-            android:exported="false"
-            android:label="Dashboard" />
-        <activity
-            android:name=".LoginPageActivity"
-            android:exported="false"
-            android:label="Login Page" />
-        <activity
             android:name=".ExpertRegistration"
             android:exported="false"
             android:label="Expert Registration" />
         <activity
             android:name=".UserRegistration"
-            android:exported="false"
-            android:label="User Registration" />
-        <activity
-            android:name=".HomeActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
