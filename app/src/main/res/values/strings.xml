@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HomeEase</string>
+    <string-array name="country_codes">
+        <item>+1</item>
+        <item>+44</item>
+        <!-- Add more country codes as needed -->
+    </string-array>
+
+</resources>
