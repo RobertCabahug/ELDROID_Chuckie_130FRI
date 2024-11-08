@@ -1,0 +1,173 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".UserDashBoard">
+
+    <TextView
+        android:id="@+id/dashboard_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:text="Dashboard"/>
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:queryHint="Services and Packages"
+        android:background="@color/white"
+        android:layout_below="@id/dashboard_title"
+        android:layout_centerHorizontal="true"
+        app:iconifiedByDefault="false" />
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchView"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/washing"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/white"
+            android:src="@drawable/carwash"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/security"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/washing"
+            android:background="@android:color/white"
+            android:src="@drawable/security" />
+
+        <ImageView
+            android:id="@+id/homeservice"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/white"
+            android:src="@drawable/homeservice"
+            android:layout_toRightOf="@+id/security"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1"
+        android:layout_marginTop="20dp">
+
+
+        <ImageView
+            android:id="@+id/laundry"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:background="@android:color/white"
+            android:src="@drawable/laundry" />
+
+        <ImageView
+            android:id="@+id/plumber"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/laundry"
+            android:background="@android:color/white"
+            android:src="@drawable/plumb"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/delivery"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/white"
+            android:layout_toRightOf="@+id/plumber"
+            android:src="@drawable/food"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/renting"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:src="@drawable/carrental"
+        android:layout_below="@id/layout2"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/activity"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_3"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:id="@+id/payment"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_4"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:id="@+id/textHome"
+            android:layout_width="69dp"
+            android:layout_height="57dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/img_10" />
+
+        <ImageView
+            android:id="@+id/messages"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_6"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_7"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
