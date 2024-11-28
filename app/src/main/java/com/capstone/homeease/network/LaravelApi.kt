@@ -8,6 +8,8 @@ import com.capstone.homeease.model.ExpertIdResponse
 import com.capstone.homeease.model.ExpertProfileResponse
 import com.capstone.homeease.model.LoginRequest
 import com.capstone.homeease.model.LoginResponse
+import com.capstone.homeease.model.Payment
+import com.capstone.homeease.model.UserProfile
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -41,5 +43,13 @@ interface LaravelApi {
     @GET("expert/{userId}/ongoing-bookings")
     fun getOngoingBookings(@Path("userId") userId: Int): Call<List<Booking>>
 
+    // Endpoint to fetch the list of payment methods
+    @GET("payments")
+    fun getPayments(): Call<List<Payment>>
 
+    // Endpoint to get user profile
+    @GET("users-profile")
+    fun getUsersProfile(
+        @Query("id") userId: Int // Pass the userId as a query parameter
+    ): Call<UserProfile>
 }
