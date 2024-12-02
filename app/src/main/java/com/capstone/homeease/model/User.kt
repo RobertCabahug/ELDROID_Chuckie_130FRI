@@ -11,3 +11,5 @@ data class User(
     val profileImage: Uri? = null,
     val role: String = "user" // Default role is user
 )
+
+

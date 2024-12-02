@@ -105,7 +105,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             ) {
                 if (response.isSuccessful) {
                     val expert = response.body()
-                    val expertId = expert?.userId ?: 0  // userId maps to id in the API response
+                    val expertId = expert?.id ?: 0  // userId maps to id in the API response
 
                     // Log expert profile data for debugging
                     Log.d("LoginFragment", "Expert profile fetched successfully. Expert ID: $expertId")
