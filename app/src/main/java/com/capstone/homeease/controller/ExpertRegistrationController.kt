@@ -43,7 +43,10 @@ class ExpertRegistrationController(private val view: ExpertRegistrationView, pri
         }
     }
 
+<<<<<<< HEAD
     // Perform the actual network call for expert registration
+=======
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
     private fun performExpertRegistration(expert: Expert): Response {
         val url = "http://10.0.2.2:8000/api/register/expert"
         val formBodyBuilder = MultipartBody.Builder().setType(MultipartBody.FORM)

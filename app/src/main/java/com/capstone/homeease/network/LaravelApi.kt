@@ -1,15 +1,21 @@
 package com.capstone.homeease.network
 
 import com.capstone.homeease.model.ApiResponse
+<<<<<<< HEAD
 import com.capstone.homeease.model.ApiResponse2
 import com.capstone.homeease.model.Booking
 import com.capstone.homeease.model.BookingRequest
 import com.capstone.homeease.model.BookingRequest2
+=======
+import com.capstone.homeease.model.Booking
+import com.capstone.homeease.model.BookingRequest
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 import com.capstone.homeease.model.Expert
 import com.capstone.homeease.model.ExpertIdResponse
 import com.capstone.homeease.model.ExpertProfileResponse
 import com.capstone.homeease.model.LoginRequest
 import com.capstone.homeease.model.LoginResponse
+<<<<<<< HEAD
 import com.capstone.homeease.model.LoginResponse2
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -20,6 +26,14 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
+=======
+import com.capstone.homeease.model.Payment
+import com.capstone.homeease.model.UserProfile
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -30,16 +44,20 @@ interface LaravelApi {
     fun getUserProfile(
         @Query("id") userId: Int // Use @Query to pass the userId as a query parameter
     ): Call<LoginResponse>
+<<<<<<< HEAD
     @GET("user-profile2")
     fun getUserProfile2(
         @Query("id") userId: Int // Use @Query to pass the userId as a query parameter
     ): Call<LoginResponse2>
+=======
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
     @GET("expert-profile")
     fun getExpertProfile(@Query("userId") userId: Int): Call<ExpertProfileResponse>
     @GET("experts")
     fun getExpertsByProfession(@Query("profession") profession: String): Call<List<Expert>>
     @POST("bookings")
     fun bookExpert(@Body bookingRequest: BookingRequest): Call<ApiResponse>
+<<<<<<< HEAD
 
     @GET("bookings/expert/{expertId}")
     fun getExpertBookings(@Path("expertId") expertId: Int): Call<ApiResponse2>
@@ -62,4 +80,28 @@ interface LaravelApi {
     fun getOngoingBookings(@Path("userId") userId: Int): Call<List<Booking>>
 
 
+=======
+    @GET("expert-profile")
+    fun getExpertIdByEmail(
+        @Query("email") email: String
+    ): Call<ExpertIdResponse>
+
+
+    @GET("expert/{userId}/bookings")
+    fun getExpertBookings(@Path("userId") userId: Int): Call<List<Booking>>
+
+    // Endpoint to get ongoing bookings
+    @GET("expert/{userId}/ongoing-bookings")
+    fun getOngoingBookings(@Path("userId") userId: Int): Call<List<Booking>>
+
+    // Endpoint to fetch the list of payment methods
+    @GET("payments")
+    fun getPayments(): Call<List<Payment>>
+
+    // Endpoint to get user profile
+    @GET("users-profile")
+    fun getUsersProfile(
+        @Query("id") userId: Int // Pass the userId as a query parameter
+    ): Call<UserProfile>
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 }

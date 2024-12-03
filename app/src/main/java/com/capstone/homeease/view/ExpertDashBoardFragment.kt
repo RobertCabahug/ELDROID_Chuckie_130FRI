@@ -13,7 +13,10 @@ import com.capstone.homeease.R
 import com.capstone.homeease.adapters.ExpertBookingsAdapter
 import com.capstone.homeease.adapters.OngoingBookingsAdapter
 import com.capstone.homeease.databinding.FragmentExpertDashBoardBinding
+<<<<<<< HEAD
 import com.capstone.homeease.model.ApiResponse2
+=======
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 import com.capstone.homeease.model.Booking
 import com.capstone.homeease.model.ExpertProfileResponse
 import com.capstone.homeease.network.LaravelApi
@@ -30,8 +33,11 @@ class ExpertDashBoardFragment : Fragment(R.layout.fragment_expert_dash_board) {
     private lateinit var expertBookingsAdapter: ExpertBookingsAdapter
     private lateinit var ongoingBookingsAdapter: OngoingBookingsAdapter
 
+<<<<<<< HEAD
     private var allBookings: List<Booking> = emptyList()
 
+=======
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,11 +46,19 @@ class ExpertDashBoardFragment : Fragment(R.layout.fragment_expert_dash_board) {
 
         // Initialize RecyclerViews
         binding.bookingsRecyclerView.layoutManager =
+<<<<<<< HEAD
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) // Vertical layout
         binding.ongoingBookingsRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false) // Vertical layout
 
         // Initialize both adapters with empty lists initially
+=======
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.ongoingBookingsRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        // Initialize both adapters
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
         expertBookingsAdapter = ExpertBookingsAdapter(requireContext(), emptyList())
         ongoingBookingsAdapter = OngoingBookingsAdapter(requireContext(), emptyList())
 
@@ -57,11 +71,17 @@ class ExpertDashBoardFragment : Fragment(R.layout.fragment_expert_dash_board) {
 
         // Load expert profile and bookings
         loadExpertProfile()
+<<<<<<< HEAD
         fetchExpertBookings() // Fetch all expert bookings and categorize
+=======
+        fetchBookings()
+        fetchOngoingBookings()
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 
         return binding.root
     }
 
+<<<<<<< HEAD
     private fun fetchExpertBookings() {
         val expertId = getUserId(requireContext()) // Use the expert's user ID for the API call
         val retrofit = Retrofit.Builder()
@@ -136,25 +156,60 @@ class ExpertDashBoardFragment : Fragment(R.layout.fragment_expert_dash_board) {
                 .replace(R.id.fragmentContainer, ExpertProfileFragment())
                 .addToBackStack(null)
                 .commit()
+=======
+    private fun setNavigationListeners() {
+        binding.activity.setOnClickListener {
+            // Navigate to Expert Activity Page
+        }
+
+        binding.payment.setOnClickListener {
+            // Navigate to Expert Payment Page
+        }
+
+        binding.textHome.setOnClickListener {
+            // Reload Expert Dashboard
+        }
+
+        binding.messages.setOnClickListener {
+            // Navigate to Expert Messages Page
+        }
+
+        binding.profile.setOnClickListener {
+            // Navigate to Expert Profile Page
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
         }
     }
 
     private fun loadExpertProfile() {
+<<<<<<< HEAD
         val expertId = getUserId(requireContext())
         if (expertId == -1) {
             Log.e("ExpertDashBoardFragment", "Expert ID not found")
+=======
+        val userId = getUserId(requireContext())
+        if (userId == -1) {
+            Log.e("ExpertDashBoardFragment", "User ID not found")
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
             return
         }
 
         // Make Retrofit call to fetch the expert profile
         val retrofit = Retrofit.Builder()
+<<<<<<< HEAD
             .baseUrl("http://10.0.2.2:8000/api/") // Change base URL if needed
+=======
+            .baseUrl("http://10.0.2.2:8000/api/")
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val api = retrofit.create(LaravelApi::class.java)
 
+<<<<<<< HEAD
         api.getExpertProfile(expertId).enqueue(object : Callback<ExpertProfileResponse> {
+=======
+        api.getExpertProfile(userId).enqueue(object : Callback<ExpertProfileResponse> {
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
             override fun onResponse(
                 call: Call<ExpertProfileResponse>,
                 response: Response<ExpertProfileResponse>
@@ -162,6 +217,7 @@ class ExpertDashBoardFragment : Fragment(R.layout.fragment_expert_dash_board) {
                 if (response.isSuccessful) {
                     val expert = response.body()
                     Log.d("ExpertDashBoardFragment", "Expert Profile: $expert")
+<<<<<<< HEAD
                     Log.d("ExpertDashBoardFragment", "Full name: ${expert?.fullName}, Phone number: ${expert?.phoneNumber}")
 
                     // Update the UI with the expert's data
@@ -171,12 +227,89 @@ class ExpertDashBoardFragment : Fragment(R.layout.fragment_expert_dash_board) {
 
                 } else {
                     Log.e("ExpertDashBoardFragment", "Failed to load expert profile. Response: ${response.code()}")
+=======
+                    Log.d("ExpertDashBoardFragment", "Full name: ${expert?.full_name}, Number: ${expert?.phone_number}")
+
+                    // Update the UI with the expert's data
+                    binding.usernameText.text = expert?.full_name ?: "Expert Name"
+                    binding.numberText.text = expert?.phone_number ?: "Add Phone Number"
+
+                    expert?.profile_image?.let {
+                        Glide.with(requireContext())
+                            .load(it)
+                            .into(binding.profilePicture)
+                    }
+
+                } else {
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
                     Toast.makeText(requireContext(), "Failed to load profile", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ExpertProfileResponse>, t: Throwable) {
+<<<<<<< HEAD
                 Log.e("ExpertDashBoardFragment", "Error fetching expert profile: ${t.message}")
+=======
+                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+
+
+
+
+    private fun fetchBookings() {
+        val userId = getUserId(requireContext())
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8000/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val api = retrofit.create(LaravelApi::class.java)
+
+        api.getExpertBookings(userId).enqueue(object : Callback<List<Booking>> {
+            override fun onResponse(call: Call<List<Booking>>, response: Response<List<Booking>>) {
+                if (response.isSuccessful) {
+                    val bookings = response.body() ?: emptyList()
+                    expertBookingsAdapter.updateBookings(bookings)
+                } else {
+                    Toast.makeText(requireContext(), "Failed to load bookings", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Booking>>, t: Throwable) {
+                Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun fetchOngoingBookings() {
+        val userId = getUserId(requireContext())
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8000/api/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val api = retrofit.create(LaravelApi::class.java)
+
+        api.getOngoingBookings(userId).enqueue(object : Callback<List<Booking>> {
+            override fun onResponse(call: Call<List<Booking>>, response: Response<List<Booking>>) {
+                if (response.isSuccessful) {
+                    val ongoingBookings = response.body() ?: emptyList()
+                    ongoingBookingsAdapter.updateBookings(ongoingBookings)
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Failed to load ongoing bookings",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Booking>>, t: Throwable) {
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
                 Toast.makeText(requireContext(), "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })

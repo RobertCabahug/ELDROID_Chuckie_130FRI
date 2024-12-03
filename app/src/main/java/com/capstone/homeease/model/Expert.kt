@@ -3,6 +3,7 @@ package com.capstone.homeease.model
 import android.net.Uri
 import com.google.gson.annotations.SerializedName
 
+<<<<<<< HEAD
 data class ExpertProfileResponse(
     val message: String,
     @SerializedName("id") val userId: Int,
@@ -17,6 +18,26 @@ data class ExpertProfileResponse(
     val created_at: String,
     val updated_at: String
 )
+=======
+
+
+
+
+data class ExpertProfileResponse(
+    @SerializedName("id") val id: Int,
+    @SerializedName("full_name") val fullName: String?,
+    @SerializedName("email") val email: String?,
+    @SerializedName("profession") val profession: String?,
+    @SerializedName("date_of_birth") val dateOfBirth: String?,
+    @SerializedName("address") val address: String?,
+    @SerializedName("phone_number") val phoneNumber: String?,
+    @SerializedName("profile_image") val profileImage: String?,
+    @SerializedName("role") val role: String?,
+    @SerializedName("created_at") val createdAt: String?,
+    @SerializedName("updated_at") val updatedAt: String?
+)
+
+>>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 data class Expert(
     @SerializedName("full_name")val fullName: String,
     val email: String,
