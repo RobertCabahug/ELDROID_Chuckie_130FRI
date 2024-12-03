@@ -1,10 +1,7 @@
 package com.capstone.homeease.adapters
 
 import android.content.Context
-<<<<<<< HEAD
-=======
 import android.util.Log
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,20 +27,6 @@ class OngoingBookingsAdapter(var context: Context, var bookings: List<Booking>) 
     override fun onBindViewHolder(holder: BookingViewHolder, position: Int) {
         val booking = bookings[position]
 
-<<<<<<< HEAD
-        // Bind data to the views
-        holder.expertNameTextView.text = booking.userName
-        holder.address.text = booking.userAddress
-        holder.bookingStatusTextView.text = "Status: ${booking.status}"
-        holder.noteTextView.text = "Note: ${booking.note}"
-        holder.bookingTimestampTextView.text = SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault()).format(
-            Date(booking.timestamp)
-        )
-
-        // Set visibility and click listeners for the buttons
-        when (booking.status) {
-            "Pending" -> {
-=======
         // Log the booking data for debugging
         Log.d("OngoingBookings", "Binding booking at position: $position with name: ${booking.userName}")
 
@@ -70,17 +53,12 @@ class OngoingBookingsAdapter(var context: Context, var bookings: List<Booking>) 
         // Set visibility and click listeners for the buttons
         when (booking.status.toLowerCase()) {  // Ensure status comparison is case insensitive
             "pending" -> {
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
                 holder.acceptButton.visibility = View.VISIBLE
                 holder.declineButton.visibility = View.VISIBLE
                 holder.completeButton.visibility = View.GONE
                 holder.cancelButton.visibility = View.GONE
             }
-<<<<<<< HEAD
-            "Accepted" -> {
-=======
             "ongoing" -> {
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
                 holder.acceptButton.visibility = View.GONE
                 holder.declineButton.visibility = View.GONE
                 holder.completeButton.visibility = View.VISIBLE
@@ -95,21 +73,6 @@ class OngoingBookingsAdapter(var context: Context, var bookings: List<Booking>) 
         }
 
         // Handle button actions
-<<<<<<< HEAD
-        holder.acceptButton.setOnClickListener {
-            updateBookingStatus(booking, "Accepted", holder)
-        }
-
-        holder.declineButton.setOnClickListener {
-            updateBookingStatus(booking, "Declined", holder)
-        }
-
-        holder.completeButton.setOnClickListener {
-            updateBookingStatus(booking, "Completed", holder)
-        }
-    }
-
-=======
         holder.completeButton.setOnClickListener {
             // Update status to 'Completed' when the button is clicked
             updateBookingStatus(booking, "completed", holder)
@@ -118,7 +81,6 @@ class OngoingBookingsAdapter(var context: Context, var bookings: List<Booking>) 
 
 
 
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
     override fun getItemCount(): Int {
         return bookings.size
     }
@@ -153,8 +115,4 @@ class OngoingBookingsAdapter(var context: Context, var bookings: List<Booking>) 
         val completeButton: Button = itemView.findViewById(R.id.completeButton)
         val cancelButton: Button = itemView.findViewById(R.id.cancelButton)
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645

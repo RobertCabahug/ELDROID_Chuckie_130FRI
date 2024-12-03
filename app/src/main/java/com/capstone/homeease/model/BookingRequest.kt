@@ -1,16 +1,5 @@
 package com.capstone.homeease.model
 
-<<<<<<< HEAD
-data class BookingRequest(
-    val userId: Int,
-    val expertId: Int,
-    val expertName: String,
-    val userName: String,
-    val expertAddress: String,
-    val userAddress: String,
-    val status: String,
-    val timestamp: String // Ensure this is a properly formatted date string, not a long
-=======
 
 data class BookingRequest(
     val user_id: Int,
@@ -26,5 +15,4 @@ data class BookingRequest(
 )
 data class BookingRequest2(
     val bookings: List<Booking>
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 )

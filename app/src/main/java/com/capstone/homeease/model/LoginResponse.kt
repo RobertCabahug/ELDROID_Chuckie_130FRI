@@ -1,10 +1,7 @@
 package com.capstone.homeease.model
 
-<<<<<<< HEAD
-=======
 import com.google.gson.annotations.SerializedName
 
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 data class LoginResponse(
     val message: String,
     val role: String,
@@ -15,8 +12,6 @@ data class LoginResponse(
     val fullName: String?,
     val profileImage: String?
 )
-<<<<<<< HEAD
-=======
 data class LoginResponse2(
     @SerializedName("id") val userId: Int,
     @SerializedName("full_name") val fullName: String?,
@@ -26,5 +21,4 @@ data class LoginResponse2(
     @SerializedName("profile_picture") val profilePicture: String?,
     @SerializedName("role") val role: String?,
 )
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 

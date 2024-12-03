@@ -1,9 +1,6 @@
 package com.capstone.homeease.view
 
-<<<<<<< HEAD
 import android.content.Intent
-=======
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 import androidx.activity.OnBackPressedCallback
 import android.os.Bundle
 import android.util.Log
@@ -48,7 +45,6 @@ class UserDashBoardFragment : Fragment(R.layout.fragment_user_dash_board) {
         binding.plumber.setOnClickListener { navigateToExperts("Plumbing") }
         binding.renting.setOnClickListener { navigateToExperts("Electrician") }
 
-<<<<<<< HEAD
         binding.activity.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, ActivityPageFragment())
@@ -74,9 +70,6 @@ class UserDashBoardFragment : Fragment(R.layout.fragment_user_dash_board) {
                 .commit()
         }
 
-=======
-        // Add other navigation click handlers (activity, payment, messages, profile)
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 
         return binding.root
     }

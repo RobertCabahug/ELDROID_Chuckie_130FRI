@@ -1,17 +1,17 @@
 package com.capstone.homeease.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.capstone.homeease.R
-import com.capstone.homeease.databinding.FragmentPaymentBinding // Import the ViewBinding class
+import com.capstone.homeease.databinding.FragmentPaymentBinding
+import com.capstone.homeease.databinding.FragmentRewardsBinding
 
-class PaymentFragment : Fragment() {
 
-    private var _binding: FragmentPaymentBinding? = null // Declare the ViewBinding variable
+class RewardsFragment : Fragment() {
+    private var _binding: FragmentRewardsBinding? = null // Declare the ViewBinding variable
     private val binding get() = _binding!! // Get the binding object
 
     override fun onCreateView(
@@ -19,7 +19,7 @@ class PaymentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Initialize the ViewBinding and return the root view
-        _binding = FragmentPaymentBinding.inflate(inflater, container, false)
+        _binding = FragmentRewardsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -44,6 +44,9 @@ class PaymentFragment : Fragment() {
                 .replace(R.id.fragmentContainer, UserDashBoardFragment())
                 .addToBackStack(null)
                 .commit()
+        }
+        binding.messages.setOnClickListener {
+
         }
         binding.profile.setOnClickListener {
             parentFragmentManager.beginTransaction()

@@ -1,11 +1,5 @@
 package com.capstone.homeease.controller
 
-<<<<<<< HEAD
-import com.capstone.homeease.network.RetrofitClient
-import com.capstone.homeease.view.ExpertView
-import com.capstone.homeease.model.ExpertRepository
-import com.capstone.homeease.network.LaravelApi
-=======
 import com.capstone.homeease.model.Expert
 import com.capstone.homeease.model.ExpertIdResponse
 import com.capstone.homeease.model.ExpertRepository
@@ -17,18 +11,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 
 class ExpertController(private val view: ExpertView) {
 
     private val repository: ExpertRepository = ExpertRepository(
         RetrofitClient.createService(LaravelApi::class.java)
     )
-<<<<<<< HEAD
-
-=======
     private val apiService: ApiService = RetrofitClient.apiService
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
     fun fetchExperts(profession: String) {
         repository.getExperts(profession) { experts, error ->
             if (experts != null) {
@@ -38,8 +27,6 @@ class ExpertController(private val view: ExpertView) {
             }
         }
     }
-<<<<<<< HEAD
-=======
     fun getExpertIdByEmail(email: String, callback: (Int?) -> Unit) {
         apiService.getExpertIdByEmail(email).enqueue(object : Callback<ExpertIdResponse> {
             override fun onResponse(call: Call<ExpertIdResponse>, response: Response<ExpertIdResponse>) {
@@ -60,5 +47,4 @@ class ExpertController(private val view: ExpertView) {
             }
         })
     }
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 }

@@ -11,8 +11,8 @@ data class User(
     val profileImage: Uri? = null,
     val role: String = "user" // Default role is user
 )
-<<<<<<< HEAD
-=======
+data class UserResponse(
+    val success: Boolean,
+    val user: User
+)
 
-
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645

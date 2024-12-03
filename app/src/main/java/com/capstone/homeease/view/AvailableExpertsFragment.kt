@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ class AvailableExpertsFragment : Fragment(), ExpertView {
     private lateinit var expertsAdapter: ExpertsAdapter
     private var experts: MutableList<Expert> = mutableListOf()
     private lateinit var expertController: ExpertController
+    private val expertIdMap = mutableMapOf<String, Int>()
 
     companion object {
         private const val ARG_PROFESSION = "profession"
@@ -40,7 +42,7 @@ class AvailableExpertsFragment : Fragment(), ExpertView {
 
         expertsRecyclerView = binding.findViewById(R.id.expertsRecyclerView)
         expertsRecyclerView.layoutManager = LinearLayoutManager(context)
-        expertsAdapter = ExpertsAdapter(requireContext(), experts)
+        expertsAdapter = ExpertsAdapter(requireContext(), experts, expertIdMap)
         expertsRecyclerView.adapter = expertsAdapter
 
         expertController = ExpertController(this)
@@ -50,13 +52,55 @@ class AvailableExpertsFragment : Fragment(), ExpertView {
         professionTitle.text = profession
 
         expertController.fetchExperts(profession)
+        // Add fragment transactions for the buttons
+        binding.findViewById<View>(R.id.activity).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ActivityPageFragment())
+                .addToBackStack(null)
+                .commitAllowingStateLoss()
+        }
 
+        binding.findViewById<View>(R.id.textHome).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, UserDashBoardFragment())
+                .addToBackStack(null)
+                .commitAllowingStateLoss()
+        }
+        binding.findViewById<View>(R.id.payment).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, PaymentFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+        binding.findViewById<View>(R.id.profile).setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ProfileFragment())
+                .addToBackStack(null)
+                .commit()
+        }
         return binding
     }
 
     override fun showExperts(expertsList: List<Expert>) {
         expertsAdapter.updateExperts(expertsList)
+
+        // Immediately fetch expert ID for each expert
+        expertsList.forEach { expert ->
+            val expertEmail = expert.email // Assuming 'email' is a property of Expert
+
+            // Fetch the expert ID by email
+            expertController.getExpertIdByEmail(expertEmail) { expertId ->
+                if (expertId != null) {
+                    // You can store the expert ID, use it immediately or show a toast
+                    Toast.makeText(context, "Expert ID for ${expert.fullName}: $expertId", Toast.LENGTH_SHORT).show()
+                    expertIdMap[expertEmail] = expertId
+                } else {
+                    Toast.makeText(context, "Expert not found: ${expert.fullName}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
+
 
     override fun showError(errorMessage: String) {
         // Handle error, show toast or UI feedback

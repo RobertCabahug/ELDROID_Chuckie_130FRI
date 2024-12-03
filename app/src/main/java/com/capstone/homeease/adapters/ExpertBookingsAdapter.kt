@@ -1,10 +1,7 @@
 package com.capstone.homeease.adapters
 
 import android.content.Context
-<<<<<<< HEAD
-=======
 import android.util.Log
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,9 +10,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.homeease.R
-<<<<<<< HEAD
-import com.capstone.homeease.model.Booking
-=======
 import com.capstone.homeease.model.ApiResponse2
 import com.capstone.homeease.model.Booking
 import com.capstone.homeease.network.LaravelApi
@@ -28,16 +22,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class ExpertBookingsAdapter(private val context: Context, private var bookings: List<Booking>) : RecyclerView.Adapter<ExpertBookingsAdapter.BookingViewHolder>() {
-<<<<<<< HEAD
-=======
     private var allBookings: MutableList<Booking> = mutableListOf()
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_bookings, parent, false)
@@ -47,9 +37,6 @@ class ExpertBookingsAdapter(private val context: Context, private var bookings: 
     override fun onBindViewHolder(holder: BookingViewHolder, position: Int) {
         val booking = bookings[position]
 
-<<<<<<< HEAD
-        // Bind data to the views
-=======
         try {
             val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()) // Correct format
             val date = dateFormat.parse(booking.timestamp) // Parse the timestamp string into Date
@@ -63,20 +50,10 @@ class ExpertBookingsAdapter(private val context: Context, private var bookings: 
             holder.bookingTimestampTextView.text = "Invalid Date"
         }
 
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
         holder.expertNameTextView.text = booking.userName
         holder.address.text = "Address: ${booking.userAddress}"
         holder.bookingStatusTextView.text = "Status: ${booking.status}"
         holder.note.text = "Note: ${booking.note}"
-<<<<<<< HEAD
-        holder.bookingTimestampTextView.text = SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault()).format(
-            Date(booking.timestamp)
-        )
-
-        // Show and hide buttons based on the booking status
-        when (booking.status) {
-            "Pending" -> {
-=======
 
         holder.acceptButton.setOnClickListener {
             if (booking.expertId == null) {
@@ -140,17 +117,12 @@ class ExpertBookingsAdapter(private val context: Context, private var bookings: 
 
         when (booking.status) {
             "pending" -> {
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
                 holder.acceptButton.visibility = View.VISIBLE
                 holder.declineButton.visibility = View.VISIBLE
                 holder.completeButton.visibility = View.GONE
                 holder.cancelButton.visibility = View.GONE
             }
-<<<<<<< HEAD
-            "Accepted" -> {
-=======
             "ongoing" -> {
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
                 holder.acceptButton.visibility = View.GONE
                 holder.declineButton.visibility = View.GONE
                 holder.completeButton.visibility = View.VISIBLE
@@ -163,20 +135,6 @@ class ExpertBookingsAdapter(private val context: Context, private var bookings: 
                 holder.cancelButton.visibility = View.GONE
             }
         }
-<<<<<<< HEAD
-
-        holder.acceptButton.setOnClickListener {
-            updateBookingStatus(booking, "Accepted")
-        }
-
-        holder.declineButton.setOnClickListener {
-            updateBookingStatus(booking, "Declined")
-        }
-
-        holder.completeButton.setOnClickListener {
-            updateBookingStatus(booking, "Completed")
-        }
-=======
         holder.declineButton.setOnClickListener {
             if (booking.expertId == null) {
                 Log.e("ExpertBookingsAdapter", "Expert ID is missing for booking: ${booking.id}")
@@ -233,7 +191,6 @@ class ExpertBookingsAdapter(private val context: Context, private var bookings: 
             })
         }
 
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
     }
 
     override fun getItemCount(): Int {
@@ -245,25 +202,6 @@ class ExpertBookingsAdapter(private val context: Context, private var bookings: 
         notifyDataSetChanged()
     }
 
-<<<<<<< HEAD
-    private fun updateBookingStatus(booking: Booking, status: String) {
-        // Assuming you have a Retrofit service to update the status on the server
-        // You can implement a Retrofit call here to update the status
-
-        // Simulating a network call (you can replace this with actual API call)
-        val updatedBookings = bookings.toMutableList()
-        val index = updatedBookings.indexOfFirst { it.id == booking.id }
-        if (index != -1) {
-            val updatedBooking = booking.copy(status = status)
-            updatedBookings[index] = updatedBooking
-            bookings = updatedBookings
-            notifyItemChanged(index)
-            Toast.makeText(context, "Booking $status", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-=======
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
     class BookingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val expertNameTextView: TextView = itemView.findViewById(R.id.expertNameTextView)
         val address: TextView = itemView.findViewById(R.id.address)
@@ -275,9 +213,5 @@ class ExpertBookingsAdapter(private val context: Context, private var bookings: 
         val completeButton: Button = itemView.findViewById(R.id.completeButton)
         val cancelButton: Button = itemView.findViewById(R.id.cancelButton)
     }
-<<<<<<< HEAD
-}
-=======
 }
 
->>>>>>> cfe5a45c11da7916e59ce6b409ec08c6241f7645
