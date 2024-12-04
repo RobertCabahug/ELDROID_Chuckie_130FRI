@@ -1,4 +1,5 @@
 Team Name: Chuckie
+
 Project Description: A home booking app that connects users and experts for various services
 ELDROID Members:
 - Arnejo, Eldin Joseph
